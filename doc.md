@@ -34,7 +34,7 @@ Output:
 Iteration:
 ```python
 for title, trackNum in zip(meta.tracktitle, meta.tracknum):
-	print(tracknum, title)
+	print(trackNum, title)
 ```
 Output: 
 ```
