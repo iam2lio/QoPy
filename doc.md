@@ -13,7 +13,7 @@ If you plan to use methods which don't require an account, you may use the setAp
 client.setAppId('appID')
 ```
 - If you attempt to use an auth-required method without first authorizing, the `unauthenticatedError` exception will be thrown.
-- If you attemp to use a non-auth-required method, but haven't set an app Id, the same exception will be thrown.
+- If you attempt to use a non-auth-required method, but haven't set an app Id, the same exception will be thrown.
 ### Demos ###
 #### Fetching single track metadata ####
 ```python
