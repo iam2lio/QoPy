@@ -7,7 +7,7 @@ client = qopy.Client()
 ```python
 client.authorize('emailAddress', 'password', 'appID')
 ```
-Password must be MD5 hashed. 
+Password must be MD5 hashed.   
 If you plan to use methods which don't require an account, you may use the setAppId method instead.
 ```python
 client.setAppId('appID')
