@@ -1,2 +1,2 @@
-# Qobuz-API-wrapper
+# QoPy
 Python Qobuz API wrapper.
