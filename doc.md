@@ -55,8 +55,8 @@ Raver 13
 #### Fetch track URLs ####
 Single track:
 ```python
-trackUrl = client.getFile(60896649, formatId=27)
-print(trackUrl.url)
+trackUrl = client.getFile(60896649, formatId=27).url
+print(trackUrl)
 ```
 Output: 
 ```
