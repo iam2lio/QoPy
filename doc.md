@@ -98,7 +98,7 @@ Returned keys:
 - samplingrate
 - bitdepth
 
-#### getTrackMetadata ####
+#### getTrackMetadata() ####
 ```python
 client.getTrackMetadata('trackId')
 ```
@@ -111,4 +111,4 @@ client.isAuth()
 Check if user is authenticated. 
 `True` will be returned if so, and `False` if not.
 
-#### setAppId ####
+#### setAppId() ####
