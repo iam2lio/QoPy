@@ -5,12 +5,12 @@ client = qopy.Client()
 ```
 ### Authorization ###
 ```python
-client.authorize('emailAddress', 'password', 'appID')
+client.auth('email_address', 'password', 'app_id')
 ```
 Password must be MD5 hashed.   
 If you plan to use methods which don't require an account, you may use the setAppId method instead.
 ```python
-client.setAppId('appID')
+client.set_app_id('app_id')
 ```
 - If you attempt to use an auth-required method without first authorizing, the `unauthenticatedError` exception will be thrown.
 - If you attempt to use a non-auth-required method, but haven't set an app Id, the same exception will be thrown.
@@ -18,14 +18,14 @@ client.setAppId('appID')
 #### Fetching single track metadata ####
 ```python
 meta = client.getTrackMetadata(60896649)
-print(meta.tracknum, meta.albumtitle)
+print(meta.track_num, meta.album_title)
 ```
 Output:
 `4 Untrue`
 #### Fetching album metadata ####
 ```python
-meta = client.getAlbumMetadata('q9vy3z7yknvgc')
-print(meta.trackscount, meta.albumtitle)
+meta = client.get_album_metadata('q9vy3z7yknvgc')
+print(meta.track_count, meta.album_title)
 ```
 Output: 
 ```
@@ -33,8 +33,8 @@ Output:
 ```
 Iteration:
 ```python
-for title, trackNum in zip(meta.tracktitle, meta.tracknum):
-	print(trackNum, title)
+for title, track_num in zip(meta.track_title, meta.track_num):
+	print(track_num, title)
 ```
 Output: 
 ```
@@ -55,8 +55,8 @@ Raver 13
 #### Fetch track URLs ####
 Single track:
 ```python
-trackUrl = client.getFile(60896649, formatId=27).url
-print(trackUrl)
+track_url = client.get_fle(60896649, 27).url
+print(track_url)
 ```
 Output: 
 ```
@@ -64,8 +64,8 @@ https://streaming2.qobuz.com/file?uid=x&eid=x&fmt=6&profile=raw&app_id=x&x&etsp=
 ```
 Every track in an album:
 ```python
-for trackId in client.getAlbumMetadata('q9vy3z7yknvgc').trackid:
-	print(client.getFile(trackId, formatId=27).url)
+for track_id in client.get_album_metadata('q9vy3z7yknvgc').track_id:
+	print(client.get_file(track_id, 27).url)
 ```
 Output: 
 ```
@@ -75,40 +75,29 @@ x13
 ### Methods ###
 #### auth() ####
 ```python
-client.authorize('emailAddress', 'password', 'appID')
+client.auth('email_address', 'password', 'app_id')
 ```
 Password must be MD5 hashed.
-#### getAlbumMetadata() ####
+#### get_album_metadata() ####
 ```python
-client.getAlbumMetadata('album ID')
+client.get_album_metadata('album ID')
 ```
-#### getFile() ####
+#### get_file() ####
 ```python
-client.getFile('trackId', formatId='formatId')
+client.get_file('track_id', 'format_id')
 ```
-See Qobuz API documentation for format IDs.
 
-Returned keys:
-- trackid
-- duration
-- url
-- formatid
-- mimetype
-- restrictions
-- samplingrate
-- bitdepth
-
-#### getTrackMetadata() ####
+#### get_track_metadata() ####
 ```python
-client.getTrackMetadata('trackId')
+client.get_track_metadata('track_id')
 ```
 Returned keys:
 
-#### isAuth() ####
+#### is_auth() ####
 ```python
-client.isAuth()
+client.is_auth()
 ```
 Check if user is authenticated. 
 `True` will be returned if so, and `False` if not.
 
-#### setAppId() ####
+#### set_app_id() ####
