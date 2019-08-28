@@ -17,7 +17,7 @@ client.set_app_id('app_id')
 ### Demos ###
 #### Fetching single track metadata ####
 ```python
-meta = client.getTrackMetadata(60896649)
+meta = client.get_track_metadata(60896649)
 print(meta.track_num, meta.album_title)
 ```
 Output:
